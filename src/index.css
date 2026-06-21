@@ -130,6 +130,41 @@
     color: var(--text);
   }
 
+  /* Hero buttons sit directly on the background image, so they need a
+     subtle backdrop + readable text in both light and dark mode. Scoped
+     to the hero so card/section buttons are unaffected. */
+  .hero-btn {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  }
+  .btn-primary {
+    background: rgba(13, 148, 136, 0.92);
+    border: 1px solid rgba(13, 148, 136, 0.92);
+    color: #ffffff;
+  }
+  .btn-primary:hover {
+    background: rgba(13, 148, 136, 1);
+    border-color: rgba(13, 148, 136, 1);
+  }
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(148, 163, 184, 0.45);
+    color: var(--text);
+  }
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.24);
+    border-color: var(--accent);
+  }
+  .hero .btn-ghost {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--text);
+  }
+  .hero .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text);
+  }
+
   /* Section heading */
   .section-heading {
     font-size: clamp(1.75rem, 4vw, 3rem);
