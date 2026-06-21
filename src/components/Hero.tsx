@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Download, ArrowRight, MapPin, Briefcase, Circle } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, ArrowRight } from 'lucide-react';
 import avatarSrc from '../assets/images/avatar.png';
 
 const statusChips = [
@@ -24,7 +24,7 @@ const container = {
 
 const item = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
 };
 
 export default function Hero() {
