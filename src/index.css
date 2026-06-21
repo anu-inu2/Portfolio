@@ -11,6 +11,19 @@
   --text-muted: #8B949E;
   --accent: #2DD4BF;
   --accent-blue: #60A5FA;
+
+  /* Hero content sits directly on the background image and needs its own
+     palette per theme. Dark mode keeps the existing look. */
+  --hero-title: #E6EDF3;
+  --hero-subtitle: #2DD4BF;
+  --hero-accent-blue: #60A5FA;
+  --hero-description: #ADBAC7;
+  --hero-meta: #8B949E;
+  --hero-btn-text: #E6EDF3;
+  --hero-btn-muted-text: #C9D1D9;
+  --hero-btn-bg: rgba(255, 255, 255, 0.08);
+  --hero-btn-border: rgba(48, 54, 61, 0.8);
+  --hero-btn-hover-text: #2DD4BF;
 }
 
 [data-theme="light"] {
@@ -21,6 +34,19 @@
   --text-muted: #475569;
   --accent: #0D9488;
   --accent-blue: #2563EB;
+
+  /* Light mode: significantly darker hero text for contrast over the
+     background image, plus an accent-tinted subtitle. */
+  --hero-title: #0F172A;
+  --hero-subtitle: #0D9488;
+  --hero-accent-blue: #2563EB;
+  --hero-description: #1E293B;
+  --hero-meta: #334155;
+  --hero-btn-text: #0F172A;
+  --hero-btn-muted-text: #1E293B;
+  --hero-btn-bg: rgba(255, 255, 255, 0.78);
+  --hero-btn-border: rgba(71, 85, 105, 0.55);
+  --hero-btn-hover-text: #0D9488;
 }
 
 /* ─── Base ─────────────────────────────────────────────────────── */
@@ -130,39 +156,37 @@
     color: var(--text);
   }
 
-  /* Hero buttons sit directly on the background image, so they need a
-     subtle backdrop + readable text in both light and dark mode. Scoped
-     to the hero so card/section buttons are unaffected. */
-  .hero-btn {
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-  }
+  /* Hero buttons: text colors driven by the hero theme tokens so they
+     stay readable over the background image in both modes. Card/section
+     buttons are untouched. */
   .btn-primary {
-    background: rgba(13, 148, 136, 0.92);
-    border: 1px solid rgba(13, 148, 136, 0.92);
+    background: var(--hero-subtitle);
+    border: 1px solid var(--hero-subtitle);
     color: #ffffff;
   }
   .btn-primary:hover {
-    background: rgba(13, 148, 136, 1);
-    border-color: rgba(13, 148, 136, 1);
+    background: var(--hero-subtitle);
+    opacity: 0.9;
+    border-color: var(--hero-subtitle);
   }
   .btn-secondary {
-    background: rgba(255, 255, 255, 0.16);
-    border: 1px solid rgba(148, 163, 184, 0.45);
-    color: var(--text);
+    background: var(--hero-btn-bg);
+    border: 1px solid var(--hero-btn-border);
+    color: var(--hero-btn-muted-text);
   }
   .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.24);
+    background: var(--hero-btn-bg);
     border-color: var(--accent);
+    color: var(--hero-btn-hover-text);
   }
   .hero .btn-ghost {
-    background: rgba(255, 255, 255, 0.12);
-    color: var(--text);
+    background: var(--hero-btn-bg);
+    border: 1px solid var(--hero-btn-border);
+    color: var(--hero-btn-muted-text);
   }
   .hero .btn-ghost:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: var(--text);
+    border-color: var(--accent);
+    color: var(--hero-btn-hover-text);
   }
 
   /* Section heading */

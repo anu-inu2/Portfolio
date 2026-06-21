@@ -103,25 +103,31 @@ export default function Hero() {
             </motion.div>
 
             <motion.div variants={item}>
-              <p className="font-mono text-[#2DD4BF] text-sm mb-2 tracking-widest">HELLO, WORLD. I'M</p>
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[var(--text)] leading-tight mb-3 [text-shadow:_0_1px_8px_rgba(0,0,0,0.25)]">
+              <p className="font-mono text-[var(--hero-subtitle)] text-sm mb-2 tracking-widest">HELLO, WORLD. I'M</p>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[var(--hero-title)] leading-tight mb-3">
                 Aniket
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2DD4BF] to-[#60A5FA]">
+                <span
+                  className="text-transparent bg-clip-text"
+                  style={{
+                    backgroundImage:
+                      'linear-gradient(to right, var(--hero-subtitle), var(--hero-accent-blue))',
+                  }}
+                >
                   Sadawarte
                 </span>
               </h1>
             </motion.div>
 
             <motion.div variants={item}>
-              <p className="text-lg sm:text-xl text-[var(--text-muted)] font-medium mb-2 font-mono [text-shadow:_0_1px_6px_rgba(0,0,0,0.2)]">
+              <p className="text-lg sm:text-xl text-[var(--hero-meta)] font-medium mb-2 font-mono">
                 Software Developer · Data Science Enthusiast · Problem Solver
               </p>
             </motion.div>
 
             <motion.p
               variants={item}
-              className="text-[var(--text-muted)] text-base max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed [text-shadow:_0_1px_6px_rgba(0,0,0,0.2)]"
+              className="text-[var(--hero-description)] text-base max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed"
             >
               Building software, machine learning systems, and scalable applications while
               continuously exploring new technologies and solving real-world problems.
@@ -131,13 +137,13 @@ export default function Hero() {
               variants={item}
               className="flex flex-wrap gap-3 justify-center lg:justify-start mb-8"
             >
-              <a href="#projects" className="hero-btn btn-primary">
+              <a href="#projects" className="btn-primary">
                 View Projects <ArrowRight size={16} />
               </a>
-              <a href="/Aniket's_CV.pdf" download className="hero-btn btn-secondary">
+              <a href="/Aniket's_CV.pdf" download className="btn-secondary">
                 <Download size={16} /> Resume
               </a>
-              <a href="#contact" className="hero-btn btn-ghost">
+              <a href="#contact" className="btn-ghost">
                 Contact Me
               </a>
             </motion.div>
@@ -150,7 +156,7 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--accent)] hover:border-[rgba(45,212,191,0.3)] transition-all hover:scale-110"
+                  className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-[var(--hero-btn-muted-text)] hover:text-[var(--hero-btn-hover-text)] hover:border-[rgba(45,212,191,0.3)] transition-all hover:scale-110"
                 >
                   <s.icon size={18} />
                 </a>
@@ -166,7 +172,7 @@ export default function Hero() {
           transition={{ delay: 1.4 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
-          <span className="font-mono text-[10px] text-[var(--text-muted)] tracking-widest [text-shadow:_0_1px_4px_rgba(0,0,0,0.25)]">SCROLL</span>
+          <span className="font-mono text-[10px] text-[var(--hero-meta)] tracking-widest">SCROLL</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
