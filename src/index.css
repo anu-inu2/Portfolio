@@ -14,13 +14,13 @@
 }
 
 [data-theme="light"] {
-  --overlay: rgba(15, 25, 35, 0.42);
-  --card-bg: rgba(248, 250, 252, 0.62);
-  --card-border: rgba(148, 163, 184, 0.35);
-  --text: #F1F5F9;
-  --text-muted: #CBD5E1;
-  --accent: #2DD4BF;
-  --accent-blue: #93C5FD;
+  --overlay: rgba(226, 232, 240, 0.6);
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-border: rgba(71, 85, 105, 0.3);
+  --text: #0F172A;
+  --text-muted: #475569;
+  --accent: #0D9488;
+  --accent-blue: #2563EB;
 }
 
 /* ─── Base ─────────────────────────────────────────────────────── */
@@ -40,7 +40,7 @@
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb {
-    background: rgba(45, 212, 191, 0.3);
+    background: color-mix(in srgb, var(--accent) 40%, transparent);
     border-radius: 2px;
   }
 }
@@ -62,8 +62,8 @@
   }
   .glass-hover:hover {
     transform: translateY(-3px);
-    border-color: rgba(45, 212, 191, 0.28);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
   }
 
   /* Monospace label */
@@ -83,8 +83,8 @@
     gap: 5px;
     padding: 3px 10px;
     border-radius: 6px;
-    background: rgba(45, 212, 191, 0.06);
-    border: 1px solid rgba(45, 212, 191, 0.18);
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.7rem;
     color: var(--text-muted);
@@ -92,7 +92,7 @@
     transition: all 0.2s;
   }
   .chip:hover {
-    border-color: rgba(45, 212, 191, 0.4);
+    border-color: var(--accent);
     color: var(--accent);
   }
 
