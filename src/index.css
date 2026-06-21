@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Theme tokens ─────────────────────────────────────────────── */
+:root {
+  --overlay: rgba(11, 15, 20, 0.72);
+  --card-bg: rgba(11, 15, 20, 0.52);
+  --card-border: rgba(48, 54, 61, 0.65);
+  --text: #E6EDF3;
+  --text-muted: #8B949E;
+  --accent: #2DD4BF;
+  --accent-blue: #60A5FA;
+}
+
+[data-theme="light"] {
+  --overlay: rgba(15, 25, 35, 0.42);
+  --card-bg: rgba(248, 250, 252, 0.62);
+  --card-border: rgba(148, 163, 184, 0.35);
+  --text: #F1F5F9;
+  --text-muted: #CBD5E1;
+  --accent: #2DD4BF;
+  --accent-blue: #93C5FD;
+}
+
+/* ─── Base ─────────────────────────────────────────────────────── */
+@layer base {
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: #0B0F14;
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    cursor: none;
+  }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(45, 212, 191, 0.3);
+    border-radius: 2px;
+  }
+}
+
+/* ─── Components ───────────────────────────────────────────────── */
+@layer components {
+  /* Glass card */
+  .glass {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+  }
+
+  /* Hover lift */
+  .glass-hover {
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .glass-hover:hover {
+    transform: translateY(-3px);
+    border-color: rgba(45, 212, 191, 0.28);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Monospace label */
+  .mono-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* Skill / tech chip */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(45, 212, 191, 0.06);
+    border: 1px solid rgba(45, 212, 191, 0.18);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .chip:hover {
+    border-color: rgba(45, 212, 191, 0.4);
+    color: var(--accent);
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: none;
+    text-decoration: none;
+  }
+
+  .btn-teal {
+    background: rgba(45, 212, 191, 0.1);
+    border: 1px solid rgba(45, 212, 191, 0.35);
+    color: var(--accent);
+  }
+  .btn-teal:hover {
+    background: rgba(45, 212, 191, 0.18);
+    border-color: var(--accent);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid var(--card-border);
+    color: var(--text-muted);
+  }
+  .btn-ghost:hover {
+    border-color: rgba(45, 212, 191, 0.3);
+    color: var(--text);
+  }
+
+  /* Section heading */
+  .section-heading {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.1;
+  }
+}
+
+/* ─── Scroll-progress bar ──────────────────────────────────────── */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-blue));
+  z-index: 100;
+  transform-origin: left;
+  transition: width 0.1s linear;
+}
+
+/* ─── Custom cursor ─────────────────────────────────────────────── */
+#cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+}
+
+#cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(45, 212, 191, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+}
+
+body:has(a:hover) #cursor-dot,
+body:has(button:hover) #cursor-dot {
+  width: 12px;
+  height: 12px;
+}
+
+body:has(a:hover) #cursor-ring,
+body:has(button:hover) #cursor-ring {
+  width: 44px;
+  height: 44px;
+  border-color: rgba(45, 212, 191, 0.8);
+}
+
+/* ─── Oneko cat ─────────────────────────────────────────────────── */
+#oneko {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9990;
+  image-rendering: pixelated;
+  width: 32px;
+  height: 32px;
+}
